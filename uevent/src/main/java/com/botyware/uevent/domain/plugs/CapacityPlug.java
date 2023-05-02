@@ -5,6 +5,6 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class CapacityPlug {
+public class CapacityPlug extends Plug {
     private long capacity;
 }

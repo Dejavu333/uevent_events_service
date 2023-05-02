@@ -1,7 +1,7 @@
-import com.botyware.uevent.domain.Entity;
-import com.botyware.uevent.domain.HostSpecification;
-import com.botyware.uevent.domain.User;
-import com.botyware.uevent.domain.plugs.QRReader;
+import com.botyware.uevent.domain.*;
+import com.botyware.uevent.domain.plugs.CapacityPlug;
+import com.botyware.uevent.domain.plugs.EventAborterPlug;
+import com.botyware.uevent.domain.plugs.QRReaderPlug;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -9,26 +9,83 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SpecificationTest {
     @Test
-    public void shouldReturnFalseIfNotHost() {
+    public void shouldReturnFalseIfUserIsNotHost() {
 
         //arrange
-        User u = new User(new QRReader());
-        HostSpecification hs = new HostSpecification();
+        User user = new User(new QRReaderPlug());
+        HostSpecification hostSpecification = new HostSpecification();
 
         //act
-        boolean result = hs.is(u);
+        boolean result = hostSpecification.is(user);
 
         //assert
         assertEquals(false, result);
     }
-
     @Test
-    public void testIsSecu() {
+    public void shouldReturnTrueIfUserIsHost() {
 
+        //arrange
+        User user = new User(new EventAborterPlug());
+        HostSpecification  hostSpecification = new HostSpecification();
+
+        //act
+        boolean result = hostSpecification.is(user);
+
+        //assert
+        assertEquals(true, result);
     }
 
     @Test
-    public void testIsGuest() {
+    public void shouldReturnFalseIfUserIsNotSecu() {
 
+        //arrange
+        User user = new User(new EventAborterPlug());
+        SecuSpecification secuSpecification = new SecuSpecification();
+
+        //act
+        boolean result = secuSpecification.is(user);
+
+        //assert
+        assertEquals(false, result);
+    }
+    @Test
+    public void shouldReturnTrueIfUserIsSecu() {
+
+        //arrange
+        User user = new User(new QRReaderPlug());
+        SecuSpecification secuSpecification = new SecuSpecification();
+
+        //act
+        boolean result = secuSpecification.is(user);
+
+        //assert
+        assertEquals(true, result);
+    }
+
+    @Test
+    public void shouldReturnFalseIfUserIsNotGuest() {
+
+        //arrange
+        User user = new User(new EventAborterPlug());
+        GuestSpecification guestSpecification = new GuestSpecification();
+
+        //act
+        boolean result = guestSpecification.is(user);
+
+        //assert
+        assertEquals(false, result);
+    }
+    @Test
+    public void shouldReturnTrueIfUserIsGuest() {
+
+        //arrange
+        User user = new User(new CapacityPlug());
+        GuestSpecification guestSpecification = new GuestSpecification();
+
+        //act
+        boolean result = guestSpecification.is(user);
+
+        //assert
+        assertEquals(true, result);
     }
 }
