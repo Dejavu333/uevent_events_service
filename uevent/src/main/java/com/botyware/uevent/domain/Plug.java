@@ -1,7 +1,7 @@
-package com.botyware.uevent.domain.plugs;
+package com.botyware.uevent.domain;
 
 import com.botyware.uevent.domain.Entity;
 
-public class Plug {
+public abstract class Plug {
     public Entity ownerEntity;
 }

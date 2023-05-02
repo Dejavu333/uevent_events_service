@@ -1,5 +1,7 @@
 package com.botyware.uevent.domain.plugs;
 
-public class EventAborterPlug extends Plug{
+import com.botyware.uevent.domain.Plug;
+
+public class EventAborterPlug extends Plug {
    public void abort() {}
 }

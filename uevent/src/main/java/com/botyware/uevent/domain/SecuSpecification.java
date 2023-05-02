@@ -4,7 +4,7 @@ import com.botyware.uevent.domain.plugs.EventAborterPlug;
 import com.botyware.uevent.domain.plugs.NullPlug;
 import com.botyware.uevent.domain.plugs.QRReaderPlug;
 
-public class SecuSpecification implements ISpecification {
+public final class SecuSpecification implements ISpecification {
     @Override
     //if user has QRReaderPlug but does not have EventAborterPlug then is secu;
     public boolean is(Entity p_entity) {

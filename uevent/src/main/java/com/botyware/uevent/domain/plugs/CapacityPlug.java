@@ -1,5 +1,6 @@
 package com.botyware.uevent.domain.plugs;
 
+import com.botyware.uevent.domain.Plug;
 import lombok.Getter;
 import lombok.Setter;
 
