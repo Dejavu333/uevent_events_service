@@ -3,8 +3,8 @@ package com.botyware.uevent.repository;
 import com.botyware.uevent.domain.Event;
 
 public interface IRepository {
-    public Event[] readAll();
-    public Event readOne(String uuid);
-    public void create(Event e);
-    public void update(Event e);
+    public Object readAll();
+    public Object readOne(String uuid);
+    public void create(Object e);
+    public void update(Object e);
 }

@@ -12,7 +12,15 @@ public class Event extends Entity {
     UserIdsPlug userIds;
     FlagsPlug flags;
 
-    public Event(Plug ...p_plugs) {
+    public Event(NamePlug p_name, CategoryPlug p_category, CapacityPlug p_capacity, AddressPlug p_address,
+                 LocaitonPlug p_location, UserIdsPlug p_userIds, FlagsPlug p_flags, Plug ...p_plugs) {
+        this.name = p_name;
+        this.category = p_category;
+        this.capacity = p_capacity;
+        this.address = p_address;
+        this.location = p_location;
+        this.userIds = p_userIds;
+        this.flags = p_flags;
         this.registerPlugs(p_plugs);
     }
 }

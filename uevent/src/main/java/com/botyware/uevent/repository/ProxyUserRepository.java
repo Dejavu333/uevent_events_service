@@ -3,8 +3,24 @@ package com.botyware.uevent.repository;
 import com.botyware.uevent.domain.Event;
 
 public final class ProxyUserRepository implements IUserRepository{
-    public Event[] readAll() {}
-    public Event readOne(String uuid) {}
-    public void create(Event e) {}
-    public void update(Event e) {}
+
+    @Override
+    public Object readAll() {
+        return null;
+    }
+
+    @Override
+    public Object readOne(String uuid) {
+        return null;
+    }
+
+    @Override
+    public void create(Object e) {
+
+    }
+
+    @Override
+    public void update(Object e) {
+
+    }
 }
