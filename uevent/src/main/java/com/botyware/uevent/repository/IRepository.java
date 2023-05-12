@@ -1,6 +1,6 @@
 package com.botyware.uevent.repository;
 
-import com.botyware.uevent.domain.Event;
+import com.botyware.uevent.domain.UEvent;
 
 public interface IRepository {
     public Object readAll();

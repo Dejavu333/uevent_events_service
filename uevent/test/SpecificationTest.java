@@ -1,8 +1,9 @@
 import com.botyware.uevent.domain.*;
-import com.botyware.uevent.domain.plugs.CapacityPlug;
 import com.botyware.uevent.domain.plugs.EventAborterPlug;
 import com.botyware.uevent.domain.plugs.QRReaderPlug;
-import org.junit.jupiter.api.Assertions;
+import com.botyware.uevent.domain.specifications.GuestSpecification;
+import com.botyware.uevent.domain.specifications.HostSpecification;
+import com.botyware.uevent.domain.specifications.SecuSpecification;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,11 +13,11 @@ public class SpecificationTest {
     public void shouldReturnFalseIfUserIsNotHost() {
 
         //arrange
-        User user = new User(new QRReaderPlug());
+        UUser UUser = new UUser(new QRReaderPlug());
         HostSpecification hostSpecification = new HostSpecification();
 
         //act
-        boolean result = hostSpecification.is(user);
+        boolean result = hostSpecification.is(UUser);
 
         //assert
         assertEquals(false, result);
@@ -25,11 +26,11 @@ public class SpecificationTest {
     public void shouldReturnTrueIfUserIsHost() {
 
         //arrange
-        User user = new User(new EventAborterPlug());
+        UUser UUser = new UUser(new EventAborterPlug());
         HostSpecification  hostSpecification = new HostSpecification();
 
         //act
-        boolean result = hostSpecification.is(user);
+        boolean result = hostSpecification.is(UUser);
 
         //assert
         assertEquals(true, result);
@@ -39,11 +40,11 @@ public class SpecificationTest {
     public void shouldReturnFalseIfUserIsNotSecu() {
 
         //arrange
-        User user = new User(new EventAborterPlug());
+        UUser UUser = new UUser(new EventAborterPlug());
         SecuSpecification secuSpecification = new SecuSpecification();
 
         //act
-        boolean result = secuSpecification.is(user);
+        boolean result = secuSpecification.is(UUser);
 
         //assert
         assertEquals(false, result);
@@ -52,11 +53,11 @@ public class SpecificationTest {
     public void shouldReturnTrueIfUserIsSecu() {
 
         //arrange
-        User user = new User(new QRReaderPlug());
+        UUser UUser = new UUser(new QRReaderPlug());
         SecuSpecification secuSpecification = new SecuSpecification();
 
         //act
-        boolean result = secuSpecification.is(user);
+        boolean result = secuSpecification.is(UUser);
 
         //assert
         assertEquals(true, result);
@@ -66,11 +67,11 @@ public class SpecificationTest {
     public void shouldReturnFalseIfUserIsNotGuest() {
 
         //arrange
-        User user = new User(new EventAborterPlug());
+        UUser UUser = new UUser(new EventAborterPlug());
         GuestSpecification guestSpecification = new GuestSpecification();
 
         //act
-        boolean result = guestSpecification.is(user);
+        boolean result = guestSpecification.is(UUser);
 
         //assert
         assertEquals(false, result);
@@ -79,11 +80,11 @@ public class SpecificationTest {
     public void shouldReturnTrueIfUserIsGuest() {
 
         //arrange
-        User user = new User(new CapacityPlug());
+        UUser UUser = new UUser();
         GuestSpecification guestSpecification = new GuestSpecification();
 
         //act
-        boolean result = guestSpecification.is(user);
+        boolean result = guestSpecification.is(UUser);
 
         //assert
         assertEquals(true, result);

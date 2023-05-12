@@ -1,8 +1,6 @@
 package com.botyware.uevent;
 
-import com.botyware.uevent.domain.plugs.CapacityPlug;
 import com.botyware.uevent.domain.plugs.QRReaderPlug;
-import com.botyware.uevent.repository.IEventRepository;
 import com.botyware.uevent.repository.Neo4jEventRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

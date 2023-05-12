@@ -17,7 +17,6 @@ public final class Neo4jEventRepository implements IEventRepository {
     //---------------------------------------------
     //fields,props
     //---------------------------------------------
-    //private final Neo4jClient neo4jClient;
     private final Session session;
 
     //---------------------------------------------
@@ -30,7 +29,6 @@ public final class Neo4jEventRepository implements IEventRepository {
 
         Driver driver = GraphDatabase.driver(connectionString, AuthTokens.basic(username, password));
         session = driver.session();
-        //this.neo4jClient = Neo4jClient.create(driver);
     }
 
     //---------------------------------------------
@@ -38,14 +36,10 @@ public final class Neo4jEventRepository implements IEventRepository {
     //---------------------------------------------
     public void createNodeForClass(Class<?> p_class) {
         String label = p_class.getSimpleName();
-        //this.neo4jClient.query("CREATE (n:" + label + ")").run();
         this.session.run("CREATE (n:" + label + ")");
     }
 
     public void testQuery() {
-        Object target = null;
-        //var result = this.neo4jClient.query("MATCH (eventNodes:event),(movies:Movie) return eventNodes, movies").fetchAs();
-        //System.out.println("result of testQuery: "+result);
         Result r = this.session.run("MATCH (eventNodes:event),(movies:Movie) return eventNodes, movies");
         while (r.hasNext()) {
             Record record = r.next();

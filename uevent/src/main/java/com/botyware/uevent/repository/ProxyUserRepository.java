@@ -1,6 +1,6 @@
 package com.botyware.uevent.repository;
 
-import com.botyware.uevent.domain.Event;
+import com.botyware.uevent.domain.UEvent;
 
 public final class ProxyUserRepository implements IUserRepository{
 

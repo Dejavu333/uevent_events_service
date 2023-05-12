@@ -1,4 +1,4 @@
-package com.botyware.uevent.domain;
+package com.botyware.uevent.domain.plugs;
 
 import com.botyware.uevent.domain.Entity;
 

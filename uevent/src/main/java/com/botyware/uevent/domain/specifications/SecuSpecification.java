@@ -1,5 +1,6 @@
-package com.botyware.uevent.domain;
+package com.botyware.uevent.domain.specifications;
 
+import com.botyware.uevent.domain.Entity;
 import com.botyware.uevent.domain.plugs.EventAborterPlug;
 import com.botyware.uevent.domain.plugs.NullPlug;
 import com.botyware.uevent.domain.plugs.QRReaderPlug;

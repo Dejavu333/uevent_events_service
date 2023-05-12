@@ -1,6 +1,7 @@
 package com.botyware.uevent.domain;
 
 import com.botyware.uevent.domain.plugs.NullPlug;
+import com.botyware.uevent.domain.plugs.Plug;
 
 import java.util.LinkedList;
 
