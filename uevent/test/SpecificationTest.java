@@ -13,11 +13,11 @@ public class SpecificationTest {
     public void shouldReturnFalseIfUserIsNotHost() {
 
         //arrange
-        UUser UUser = new UUser(new QRReaderPlug());
+        UUser user = new UUser(null, null, null, new QRReaderPlug());
         HostSpecification hostSpecification = new HostSpecification();
 
         //act
-        boolean result = hostSpecification.is(UUser);
+        boolean result = hostSpecification.is(user);
 
         //assert
         assertEquals(false, result);
@@ -26,11 +26,11 @@ public class SpecificationTest {
     public void shouldReturnTrueIfUserIsHost() {
 
         //arrange
-        UUser UUser = new UUser(new EventAborterPlug());
+        UUser user = new UUser(null, null, null, new EventAborterPlug());
         HostSpecification  hostSpecification = new HostSpecification();
 
         //act
-        boolean result = hostSpecification.is(UUser);
+        boolean result = hostSpecification.is(user);
 
         //assert
         assertEquals(true, result);
@@ -40,11 +40,11 @@ public class SpecificationTest {
     public void shouldReturnFalseIfUserIsNotSecu() {
 
         //arrange
-        UUser UUser = new UUser(new EventAborterPlug());
+        UUser user = new UUser(null, null, null, new EventAborterPlug());
         SecuSpecification secuSpecification = new SecuSpecification();
 
         //act
-        boolean result = secuSpecification.is(UUser);
+        boolean result = secuSpecification.is(user);
 
         //assert
         assertEquals(false, result);
@@ -53,11 +53,11 @@ public class SpecificationTest {
     public void shouldReturnTrueIfUserIsSecu() {
 
         //arrange
-        UUser UUser = new UUser(new QRReaderPlug());
+        UUser user = new UUser(null, null, null, new QRReaderPlug());
         SecuSpecification secuSpecification = new SecuSpecification();
 
         //act
-        boolean result = secuSpecification.is(UUser);
+        boolean result = secuSpecification.is(user);
 
         //assert
         assertEquals(true, result);
@@ -67,11 +67,11 @@ public class SpecificationTest {
     public void shouldReturnFalseIfUserIsNotGuest() {
 
         //arrange
-        UUser UUser = new UUser(new EventAborterPlug());
+        UUser user = new UUser(null, null, null, new EventAborterPlug());
         GuestSpecification guestSpecification = new GuestSpecification();
 
         //act
-        boolean result = guestSpecification.is(UUser);
+        boolean result = guestSpecification.is(user);
 
         //assert
         assertEquals(false, result);
@@ -80,11 +80,11 @@ public class SpecificationTest {
     public void shouldReturnTrueIfUserIsGuest() {
 
         //arrange
-        UUser UUser = new UUser();
+        UUser user = new UUser(null, null, null);
         GuestSpecification guestSpecification = new GuestSpecification();
 
         //act
-        boolean result = guestSpecification.is(UUser);
+        boolean result = guestSpecification.is(user);
 
         //assert
         assertEquals(true, result);

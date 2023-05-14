@@ -9,8 +9,8 @@ public final class SecuSpecification implements ISpecification {
     @Override
     //if user has QRReaderPlug but does not have EventAborterPlug then is secu;
     public boolean is(Entity p_entity) {
-        boolean hasQRReaderPlug = !p_entity.plugByType(QRReaderPlug.class).getClass().equals(NullPlug.class);
-        boolean hasEventAborterPlug = !p_entity.plugByType(EventAborterPlug.class).getClass().equals(NullPlug.class);
+        boolean hasQRReaderPlug = !p_entity.getPlugByType(QRReaderPlug.class).getClass().equals(NullPlug.class);
+        boolean hasEventAborterPlug = !p_entity.getPlugByType(EventAborterPlug.class).getClass().equals(NullPlug.class);
         return (hasQRReaderPlug && !hasEventAborterPlug);
     }
 }
